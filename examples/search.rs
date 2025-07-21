@@ -16,7 +16,7 @@ async fn main() {
                             anime.name,
                             ep.and_then(|e| e.sub).unwrap_or(0),
                             ep.and_then(|e| e.dub).unwrap_or(0),
-                            anime._id
+                            anime.id
                         );
                     }
                 }
