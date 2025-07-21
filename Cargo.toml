@@ -1,0 +1,15 @@
+[package]
+name = "ani-rust"
+version = "0.1.0"
+edition = "2024"
+authors = ["Shlomo Ballew <gavib18@gmail.com>"]
+description = "Ani-cli rewrite in rust."
+license = "GPL-3.0-or-later"
+license-file = "LICENSE"
+repository = "https://github.com/ShlomoScript/ani-rust"
+
+[dependencies]
+reqwest = { version = "0.12.22", features = ["json"] }
+serde = { version = "1.0.219", features = ["derive"] }
+serde_json = "1.0.141"
+tokio = { version = "1.46.1", features = ["full"] }
