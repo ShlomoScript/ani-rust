@@ -2,7 +2,8 @@ use serde::Deserialize;
 
 #[derive(Debug, Deserialize)]
 pub struct Anime {
-    pub _id: String,
+    #[serde(rename = "_id")]
+    pub id: String,
     pub name: String,
     #[serde(rename = "availableEpisodes")]
     pub available_episodes: Option<EpisodeCounts>,
