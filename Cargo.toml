@@ -5,7 +5,6 @@ edition = "2024"
 authors = ["Shlomo Ballew <gavib18@gmail.com>"]
 description = "Ani-cli rewrite in rust."
 license = "GPL-3.0-or-later"
-license-file = "LICENSE"
 repository = "https://github.com/ShlomoScript/ani-rust"
 
 [dependencies]
