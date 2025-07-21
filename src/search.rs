@@ -9,13 +9,13 @@ struct Shows {
 }
 
 #[derive(Debug, Deserialize)]
-struct Data {
+struct SearchData {
     shows: Shows,
 }
 
 #[derive(Debug, Deserialize)]
-struct ApiResponse {
-    data: Data,
+struct SearchApiResponse {
+    data: SearchData,
 }
 
 pub async fn search_anime(query: &str) -> Result<Vec<Anime>, Box<dyn std::error::Error>> {
@@ -66,12 +66,15 @@ pub async fn search_anime(query: &str) -> Result<Vec<Anime>, Box<dyn std::error:
             ("variables", variables.to_string()),
             ("query", gql_query.to_string()),
         ])
-        .header(USER_AGENT, "Mozilla/5.0 (ani-rust)")
+        .header(
+            USER_AGENT,
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/121.0",
+        )
         .header(REFERER, "https://allmanga.to")
         .send()
         .await?;
 
-    let json: ApiResponse = response.json().await?;
+    let json: SearchApiResponse = response.json().await?;
 
     Ok(json.data.shows.edges)
 }
